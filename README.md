@@ -1,8 +1,5 @@
 # Filmų katalogo sistema
 
-## Tikslas
-Sukurti C++ programą filmų duomenų valdymui.
-
 ## Funkcionalumas
 - Peržiūrėti filmus
 - Pridėti filmą

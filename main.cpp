@@ -126,6 +126,18 @@ void deleteMovie() {
     saveToFile();
 }
 
+void searchMovie() {
+    string keyword;
+    cin.ignore();
+    cout << "Ieškoti: ";
+    getline(cin, keyword);
+
+    for (Movie movie: movies) {
+        if (movie.title.find(keyword) != string::npos) {
+            cout << movie.title << endl;
+        }
+    }
+}
 
 void showMenu() {
     int choice;
@@ -144,7 +156,8 @@ void showMenu() {
                 break;
             case 4: deleteMovie();
                 break;
-                // case 5: searchMovie(); break;
+            case 5: searchMovie();
+                break;
                 // case 6: sortMovies(); break;
         }
     } while (choice != 0);

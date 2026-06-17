@@ -16,7 +16,7 @@ vector<Movie> movies;
 void loadFromFile() {
     ifstream moviesFile("movies.txt");
     if (moviesFile.fail()) {
-        cout << "Failed to open file!" << endl;
+        cout << "Nepavyko atidaryti failo!" << endl;
         return;
     }
 
@@ -51,6 +51,39 @@ void showMovies() {
     }
 }
 
+
+void saveToFile() {
+    ofstream file("movies.txt");
+
+    for (Movie movie: movies) {
+        file << movie.id << ";" << movie.title << ";"
+                << movie.year << ";" << movie.rating << "\n";
+    }
+
+    file.close();
+}
+
+
+void addMovie() {
+    Movie movie;
+
+    cout << "ID: ";
+    cin >> movie.id;
+    cin.ignore();
+
+    cout << "Pavadinimas: ";
+    getline(cin, movie.title);
+
+    cout << "Metai: ";
+    cin >> movie.year;
+
+    cout << "Ivertinimas: ";
+    cin >> movie.rating;
+
+    movies.push_back(movie);
+    saveToFile();
+}
+
 void showMenu() {
     int choice;
 
@@ -62,7 +95,7 @@ void showMenu() {
         switch (choice) {
             case 1: showMovies();
                 break;
-                // case 2: addMovie(); break;
+                case 2: addMovie(); break;
                 // case 3: updateMovie(); break;
                 // case 4: deleteMovie(); break;
                 // case 5: searchMovie(); break;

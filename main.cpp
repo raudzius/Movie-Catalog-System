@@ -51,7 +51,28 @@ void showMovies() {
     }
 }
 
+void showMenu() {
+    int choice;
+
+    do {
+        cout << "\n1. Rodyti\n2. Pridėti\n3. Redaguoti\n"
+                << "4. Trinti\n5. Paieška\n6. Rikiuoti\n0. Išeiti\n";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: showMovies();
+                break;
+                // case 2: addMovie(); break;
+                // case 3: updateMovie(); break;
+                // case 4: deleteMovie(); break;
+                // case 5: searchMovie(); break;
+                // case 6: sortMovies(); break;
+        }
+    } while (choice != 0);
+}
+
 int main() {
     loadFromFile();
+    showMenu();
     return 0;
 }

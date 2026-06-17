@@ -84,6 +84,31 @@ void addMovie() {
     saveToFile();
 }
 
+void updateMovie() {
+    int id;
+    cout << "Įveskite ID: ";
+    cin >> id;
+
+    for (Movie &movie: movies) {
+        if (movie.id == id) {
+            cin.ignore();
+
+            cout << "Naujas pavadinimas: ";
+            getline(cin, movie.title);
+
+            cout << "Nauji metai: ";
+            cin >> movie.year;
+
+            cout << "Naujas ivertinimas: ";
+            cin >> movie.rating;
+
+            saveToFile();
+            return;
+        }
+    }
+    cout << "Nerasta!\n";
+}
+
 void showMenu() {
     int choice;
 
@@ -95,8 +120,10 @@ void showMenu() {
         switch (choice) {
             case 1: showMovies();
                 break;
-                case 2: addMovie(); break;
-                // case 3: updateMovie(); break;
+            case 2: addMovie();
+                break;
+            case 3: updateMovie();
+                break;
                 // case 4: deleteMovie(); break;
                 // case 5: searchMovie(); break;
                 // case 6: sortMovies(); break;

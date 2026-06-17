@@ -139,6 +139,15 @@ void searchMovie() {
     }
 }
 
+void sortMovies() {
+    sort(movies.begin(), movies.end(),
+         [](Movie movie1, Movie movie2) {
+             return movie1.rating > movie2.rating;
+         });
+
+    showMovies();
+}
+
 void showMenu() {
     int choice;
 
@@ -158,7 +167,8 @@ void showMenu() {
                 break;
             case 5: searchMovie();
                 break;
-                // case 6: sortMovies(); break;
+            case 6: sortMovies();
+                break;
         }
     } while (choice != 0);
 }

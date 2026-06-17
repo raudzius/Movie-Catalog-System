@@ -41,6 +41,14 @@ void loadFromFile() {
 
         movies.push_back(movie);
     }
+
+    moviesFile.close();
+}
+
+void showMovies() {
+    for (Movie movie: movies) {
+        cout << movie.id << " | " << movie.title << " | " << movie.year << " | " << movie.rating << endl;
+    }
 }
 
 int main() {

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+
 using namespace std;
 
 struct Movie {
@@ -109,6 +110,23 @@ void updateMovie() {
     cout << "Nerasta!\n";
 }
 
+
+void deleteMovie() {
+    int id;
+    cout << "ID ištrinti: ";
+    cin >> id;
+
+    movies.erase(
+        remove_if(movies.begin(), movies.end(),
+                  [id](Movie movie) { return movie.id == id; }),
+        movies.end()
+    );
+
+
+    saveToFile();
+}
+
+
 void showMenu() {
     int choice;
 
@@ -124,7 +142,8 @@ void showMenu() {
                 break;
             case 3: updateMovie();
                 break;
-                // case 4: deleteMovie(); break;
+            case 4: deleteMovie();
+                break;
                 // case 5: searchMovie(); break;
                 // case 6: sortMovies(); break;
         }

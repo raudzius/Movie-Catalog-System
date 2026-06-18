@@ -87,7 +87,7 @@ void addMovie() {
 
 void updateMovie() {
     int id;
-    cout << "Įveskite ID: ";
+    cout << "Iveskite ID: ";
     cin >> id;
 
     for (Movie &movie: movies) {
@@ -113,7 +113,7 @@ void updateMovie() {
 
 void deleteMovie() {
     int id;
-    cout << "ID ištrinti: ";
+    cout << "ID istrinti: ";
     cin >> id;
 
     movies.erase(
@@ -129,7 +129,7 @@ void deleteMovie() {
 void searchMovie() {
     string keyword;
     cin.ignore();
-    cout << "Ieškoti: ";
+    cout << "Ieskoti: ";
     getline(cin, keyword);
 
     for (Movie movie: movies) {
@@ -152,8 +152,8 @@ void showMenu() {
     int choice;
 
     do {
-        cout << "\n1. Rodyti\n2. Pridėti\n3. Redaguoti\n"
-                << "4. Trinti\n5. Paieška\n6. Rikiuoti\n0. Išeiti\n";
+        cout << "\n1. Rodyti\n2. Prideti\n3. Redaguoti\n"
+                << "4. Trinti\n5. Paieska\n6. Rikiuoti\n0. Iseiti\n";
         cin >> choice;
 
         switch (choice) {

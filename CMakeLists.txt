@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.2)
+cmake_minimum_required(VERSION 4.1)
 project(Inventoriaus_Movie_Catalog_System)
 
 set(CMAKE_CXX_STANDARD 20)

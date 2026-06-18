@@ -65,6 +65,36 @@ void saveToFile() {
     file.close();
 }
 
+void getMovieYear(Movie &movie) {
+    int yearDigits=0;
+    do {
+        cout << "Metai: ";
+        cin >> movie.year;
+
+        int year=movie.year;
+
+        do {
+            yearDigits++;
+            year /= 10;
+        } while (year);
+
+        if (yearDigits!=4) {
+            cout<<"Ivestyje " << yearDigits <<" skaitmenys, "<<"metus turi sudaryti 4 skaitmenys\n\n";
+            yearDigits=0;
+        }
+    } while (yearDigits!=4);
+}
+
+void getMovieRating(Movie &movie) {
+    do {
+        cout << "Ivertinimas: ";
+        cin >> movie.rating;
+
+        if (movie.rating<=0||movie.rating>10) {
+            cout<<"Galimas ivertinimas 1-10\n\n";
+        }
+    } while (movie.rating<=0||movie.rating>10);
+}
 
 void addMovie() {
     Movie movie;
@@ -76,11 +106,9 @@ void addMovie() {
     cout << "Pavadinimas: ";
     getline(cin, movie.title);
 
-    cout << "Metai: ";
-    cin >> movie.year;
+    getMovieYear(movie);
 
-    cout << "Ivertinimas: ";
-    cin >> movie.rating;
+    getMovieRating(movie);
 
     movies.push_back(movie);
     saveToFile();
@@ -95,14 +123,12 @@ void updateMovie() {
         if (movie.id == id) {
             cin.ignore();
 
-            cout << "Naujas pavadinimas: ";
+            cout << "Pavadinimas: ";
             getline(cin, movie.title);
 
-            cout << "Nauji metai: ";
-            cin >> movie.year;
+            getMovieYear(movie);
 
-            cout << "Naujas ivertinimas: ";
-            cin >> movie.rating;
+            getMovieRating(movie);
 
             saveToFile();
             return;
